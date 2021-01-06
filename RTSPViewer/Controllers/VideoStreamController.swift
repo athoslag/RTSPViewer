@@ -9,12 +9,19 @@
 import UIKit
 
 class VideoStreamController: UIViewController {
-    @IBOutlet weak var videoView: VideoView!
+    
+    @IBOutlet weak var leftEyeView: VideoView!
+    @IBOutlet weak var rightEyeView: VideoView!
+    
     var videoStreamURL: URL? {
         willSet {
             if let url = newValue {
-                if let videoView = videoView {
-                    videoView.loadVideo(from: url)
+                if let leftViewPort = leftEyeView {
+                    leftViewPort.loadVideo(from: url)
+                }
+                
+                if let rightViewPort = rightEyeView {
+                    rightViewPort.loadVideo(from: url)
                 }
             }
         }
@@ -25,13 +32,19 @@ class VideoStreamController: UIViewController {
 
         guard let url = videoStreamURL else { return }
 
-        videoView.textLabel.font = UIFont.systemFont(ofSize: 40.0)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        leftEyeView.addGestureRecognizer(tapRecognizer)
+        rightEyeView.addGestureRecognizer(tapRecognizer)
+        
+        leftEyeView.textLabel.font = UIFont.systemFont(ofSize: 40.0)
+        rightEyeView.textLabel.font = UIFont.systemFont(ofSize: 40.0)
 
         title = url.host
 
         navigationController?.setNavigationBarHidden(true, animated: false)
 
-        videoView.loadVideo(from: url)
+        leftEyeView.loadVideo(from: url)
+        rightEyeView.loadVideo(from: url)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +74,7 @@ extension VideoStreamController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func handleTap(gesture: UITapGestureRecognizer) {
+    @objc func handleTap() {
         if let hidden = navigationController?.isNavigationBarHidden {
             navigationController?.setNavigationBarHidden(!hidden, animated: true)
         }

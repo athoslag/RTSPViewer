@@ -36,6 +36,10 @@ class TextInputCell: UITableViewCell {
     private func initialize() {
         textField.clearButtonMode = .whileEditing
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.tintColor = .lightGray
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.textColor = .lightGray
 
         contentView.addSubview(textField)
     }

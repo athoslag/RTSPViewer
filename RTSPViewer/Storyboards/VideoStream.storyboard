@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uha-tC-4Db">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uha-tC-4Db">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,21 +15,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZv-1j-NJ0" customClass="VideoView" customModule="RTSPViewer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="QDO-cc-imD" appends="YES" id="rDy-fU-9Su"/>
-                                </connections>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XXg-96-1bu">
+                                <rect key="frame" x="44" y="0.0" width="852" height="414"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZv-1j-NJ0" customClass="VideoView" customModule="RTSPViewer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="425" height="414"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EH8-LL-OOn" customClass="VideoView" customModule="RTSPViewer" customModuleProvider="target">
+                                        <rect key="frame" x="427" y="0.0" width="425" height="414"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XZv-1j-NJ0" firstAttribute="leading" secondItem="vMz-ul-tkB" secondAttribute="leading" id="If9-Xe-AzR"/>
-                            <constraint firstItem="XZv-1j-NJ0" firstAttribute="top" secondItem="vMz-ul-tkB" secondAttribute="top" id="Ig2-8m-yIh"/>
-                            <constraint firstAttribute="trailing" secondItem="XZv-1j-NJ0" secondAttribute="trailing" id="pGn-mD-YRu"/>
-                            <constraint firstAttribute="bottom" secondItem="XZv-1j-NJ0" secondAttribute="bottom" id="wb2-xy-JQ2"/>
+                            <constraint firstAttribute="bottom" secondItem="XXg-96-1bu" secondAttribute="bottom" id="2gL-s5-CtB"/>
+                            <constraint firstItem="XXg-96-1bu" firstAttribute="top" secondItem="vMz-ul-tkB" secondAttribute="top" id="CSw-XK-yT4"/>
+                            <constraint firstItem="XXg-96-1bu" firstAttribute="leading" secondItem="m7j-RU-Mjc" secondAttribute="leading" id="WoW-Nz-E9b"/>
+                            <constraint firstAttribute="trailing" secondItem="XXg-96-1bu" secondAttribute="trailing" id="z4k-QG-WhS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m7j-RU-Mjc"/>
                     </view>
@@ -41,7 +48,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="videoView" destination="XZv-1j-NJ0" id="ya9-EP-Fij"/>
+                        <outlet property="leftEyeView" destination="XZv-1j-NJ0" id="UBu-A2-Red"/>
+                        <outlet property="rightEyeView" destination="EH8-LL-OOn" id="cgu-TA-8aC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKV-WH-ggi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -51,7 +59,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-227.536231884058" y="95.758928571428569"/>
+            <point key="canvasLocation" x="-227.67857142857142" y="95.652173913043484"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nn4-LE-Hxf">
