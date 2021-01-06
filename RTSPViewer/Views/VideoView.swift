@@ -37,7 +37,7 @@ class VideoView: UIView {
     private func initialize() {
         mediaPlayer.drawable = self
 
-        textLabel.text = "Loading video..."
+        textLabel.text = "Loading..."
         textLabel.font = UIFont.systemFont(ofSize: 18.0)
         textLabel.textColor = .white
 

@@ -38,6 +38,11 @@ extension AddStreamViewController {
         textField.autocapitalizationType = .none
         textField.keyboardType = .URL
         textField.returnKeyType = .done
+        textField.textColor = .white
+        textField.tintColor = .white
+        textField.autocorrectionType = .no
+        
+        textField.text = "rtsp://192.168.1.107:1250/"
     }
 }
 
@@ -57,8 +62,8 @@ extension AddStreamViewController {
     }
 
     @objc func textDidChange(sender: UITextField) {
-        if sender.textColor != .black {
-            sender.textColor = .black
+        if sender.textColor != .white {
+            sender.textColor = .white
         }
     }
 }

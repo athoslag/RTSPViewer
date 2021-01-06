@@ -36,9 +36,6 @@ class VideoStreamController: UIViewController {
         leftEyeView.addGestureRecognizer(tapRecognizer)
         rightEyeView.addGestureRecognizer(tapRecognizer)
         
-        leftEyeView.textLabel.font = UIFont.systemFont(ofSize: 40.0)
-        rightEyeView.textLabel.font = UIFont.systemFont(ofSize: 40.0)
-
         title = url.host
 
         navigationController?.setNavigationBarHidden(true, animated: false)
